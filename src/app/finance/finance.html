@@ -1,0 +1,103 @@
+<div class="table_scroller_container">
+  <div class="table_container">
+    <div class="table">
+      <div class="row_container">
+        <div class="row head">
+          <div class="item field-w-8">
+            Monto
+          </div>
+          <div class="item field-w-7">
+            Cambio
+          </div>
+          <div class="item field-w-8">
+            Origen
+          </div>
+          <div class="item field-w-7">
+            Tipo
+          </div>
+          <div class="item field-w-31">
+            Fecha
+          </div>
+        </div>
+      </div>
+      @for (fin of finances; track $index) {
+        <div class="row_container" [class.row_focus]="fin.opened">
+          @if (fin.products.length > 0) {
+            <div class="row row_sub-head">
+              <div class="field-w-8 sub-item">
+                Monto
+              </div>
+              <div class="field-w-7 sub-item">
+                Cambio
+              </div>
+              <div class="field-w-8 sub-item">
+                U. Medida
+              </div>
+              <div class="field-w-7 sub-item">
+                Unidades
+              </div>
+              <div class="field-w-31 sub-item">
+                Asunto
+              </div>
+            </div>
+          }
+
+          @for (prod of fin.products; track $index) {
+            <div class="row">
+              <div class="field-w-8 sub-item">
+                {{ `${prod.totalPaid | number: '1.2' }` }}
+              </div>
+              <div class="field-w-7 sub-item">
+                {{ `${fin.currency }` }}
+              </div>
+              <div class="field-w-8 sub-item">
+                {{ `${prod.measurementUnit }` }}
+              </div>
+              <div class="field-w-7 sub-item">
+                {{ `${prod.units }` }}
+              </div>
+              <div class="field-w-31 sub-item">
+                {{ `${prod.reason }` }}
+              </div>
+            </div>
+          }
+
+          <div class="row head">
+            <div class="field-w-8 sub-item">
+              {{ "Total" }}
+            </div>
+            <div class="field-w-7 sub-item">
+              {{ "Cambio" }}
+            </div>
+            <div class="field-w-8 sub-item">
+              {{ "Origen" }}
+            </div>
+            <div class="field-w-7 sub-item">
+              {{ "Tipo" }}
+            </div>
+            <div class="field-w-31 sub-item">
+              {{ "Fecha" }}
+            </div>
+          </div>
+          <div class="row" (click)="fin.opened = !fin.opened">
+            <div class="item field-w-8">
+              {{ fin.totalPaid | number: '1.2'  }}
+            </div>
+            <div class="item field-w-7">
+              {{ fin.currency }}
+            </div>
+            <div class="item field-w-8">
+              {{ fin.source }}
+            </div>
+            <div class="item field-w-7">
+              {{ fin.type }}
+            </div>
+            <div class="item field-w-31">
+              {{ fin.time }}
+            </div>
+          </div>
+        </div>
+      }
+    </div>
+  </div>
+</div>

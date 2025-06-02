@@ -1,0 +1,64 @@
+:host {
+  $width-sidebar: 300px;
+  .app {
+    position: relative;
+    width: 100%;
+    height: 100%;
+
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    .sidebar_title {
+      height: 200px;
+      display: flex;
+      justify-content: center;
+      align-items: center;
+      font-weight: bold;
+      font-size: 40px;
+    }
+    .sidebar {
+      background-color: rgb(233, 190, 170);
+      height: 100%;
+      width: $width-sidebar;
+      .ul {
+        display: flex;
+        flex-direction: column;
+        justify-content: center;
+        align-items: center;
+        .li {
+          width:100%;
+          color: black;
+          height: 50px;
+          display: flex;
+          align-items: center;
+          padding-left: 40px;
+          font-weight: 400;
+          font-size: 24px;
+          transition:
+            all .5s ease;
+
+          &:hover {
+            cursor: pointer;
+            font-size: 30px;
+            font-weight: 600;
+            height: 80px;
+            padding-left: 60px;
+          }
+        }
+        .active {
+          font-size: 30px;
+          font-weight: 600;
+          height: 80px;
+          padding-left: 60px;
+        }
+      }
+    }
+    .content {
+      width: calc(100% - $width-sidebar);
+      height: 100%;
+      padding: 20px;
+      padding-top: 200px;
+    }
+  }
+
+}

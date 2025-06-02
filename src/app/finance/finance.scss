@@ -1,0 +1,198 @@
+:host {
+  $rem: 12px;
+  $transparentblack: rgba(0, 0, 0, 0.185);
+
+  * {
+    // transition: all 0.5s ease;
+  }
+
+  .table_scroller_container {
+    border-radius: 20px;
+    padding-bottom: 10px;
+    background-color: rgb(233, 190, 170);
+
+    .table_container {
+      min-height: 100px;
+      width: 100%;
+      overflow: auto;
+      padding-bottom: 10px;
+      border-top-left-radius: 20px;
+      border-top-right-radius: 20px;
+
+      &::-webkit-scrollbar {
+        width: 5px;
+        height: 5px;
+        padding: 20px;
+      }
+
+      &::-webkit-scrollbar-track {
+        background: transparent;
+        border: 1px solid black;
+        border-radius: 20px;
+        margin: 20px;
+      }
+
+      &::-webkit-scrollbar-thumb {
+        background: black;
+        border-radius: 20px;
+      }
+
+      .table {
+        font-size: $rem;
+        background-color: white;
+        .row_container.row_focus {
+          .row {
+            &:first-child {
+              .sub-item {
+                height: 31px;
+                border-top: 10px solid $transparentblack;
+              }
+            }
+            &:last-child {
+              .item {
+                border-bottom: 10px solid $transparentblack;
+              }
+            }
+
+            .item, .sub-item {
+              &:first-child {
+                border-left: 10px solid $transparentblack;
+              }
+              &:last-child {
+                border-right: 10px solid $transparentblack;
+              }
+            }
+
+            .sub-item {
+              transition: all 0.5s ease, color 0.5s ease 0.5s;
+              color: black;
+              height: 21px;
+              padding: 3px 20px;
+              background-color: white;
+              border-top: 0px solid $transparentblack;
+              border-right: 1px solid $transparentblack;
+              border-bottom: 1px solid $transparentblack;
+            }
+          }
+          .row_sub-head {
+            .sub-item {
+              background-color: rgb(255, 209, 102);
+            }
+          }
+          .row.head {
+            .sub-item {
+              background-color: rgb(233, 190, 170);
+            }
+          }
+        }
+
+        .row_container {
+          width: 100%;
+          height: 100%;
+          .row {
+            min-height: 0px;
+            display: flex;
+            align-items: center;
+            transition: all 0.5s ease;
+
+            > div {
+              padding: 0px 20px;
+              color: transparent;
+              transition: all 0.5s ease, color 0.2s ease-out;
+            }
+
+            .item, .sub-item {
+              &:first-child {
+                border-left: 0px solid $transparentblack;
+              }
+              &:last-child {
+                border-right: 0px solid $transparentblack;
+              }
+            }
+
+            .sub-item {
+              height: 0px;
+              padding: 0px 20px;
+            }
+
+            &:not(.head):hover {
+              filter: brightness(0.9);
+              cursor: pointer;
+            }
+
+            &:not(.head):active {
+              filter: brightness(0.8);
+              cursor: pointer;
+            }
+
+            &:first-child {
+              .sub-item {
+                border-top: 0px solid $transparentblack;
+              }
+              .item {
+                &:first-child {
+                  border-left: 1px solid transparent;
+                }
+                &:last-child {
+                  border-right: 1px solid transparent;
+                }
+              }
+            }
+
+            .item {
+              transition: all 0.5s ease;
+              color: black;
+              padding: 10px 20px;
+              background-color: white;
+              border-top: 0px solid $transparentblack;
+              border-left: 0px solid $transparentblack;
+              border-right: 1px solid $transparentblack;
+              border-bottom: 1px solid $transparentblack;
+              &:first-child {
+                border-left: 1px solid transparent;
+              }
+              &:last-child {
+                border-right: 1px solid transparent;
+              }
+            }
+            .finance_currency {
+              width: 1000%;
+              min-width: calc( $rem * 7);
+            }
+            .finance_source {
+              width: 1000%;
+              min-width: calc( $rem * 8);
+            }
+            .finance_type {
+              width: 1000%;
+              min-width: calc( $rem * 7);
+            }
+            .finance_time {
+              width: 4000%;
+              min-width: calc( $rem * 31);
+            }
+
+            .field-w-7 {
+              width: 700%;
+              min-width: calc( $rem * 7);
+            }
+            .field-w-8 {
+              width: 800%;
+              min-width: calc( $rem * 8);
+            }
+            .field-w-31 {
+              width: 3100%;
+              min-width: calc( $rem * 31);
+            }
+          }
+
+          .head {
+            .item {
+              background-color: rgb(233, 190, 170);
+            }
+          }
+        }
+      }
+    }
+  }
+}
